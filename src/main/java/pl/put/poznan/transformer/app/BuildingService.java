@@ -11,12 +11,14 @@ import java.util.List;
 @Component
 public class BuildingService {
 
-
     private List<Building> buildings = Arrays.asList(
             new Building(0, "nowyBudynel").addFloor(new Floor(0, "podłowaMarcela")).addFloor(new Floor(1, "podłoga Iwa")),
             new Building(1, "nowyBudenyek2").addFloor(new Floor(2, "podłoga Kuby i Jasia na której się ruchają w dupsko"))
     );
 
+    /**
+     * @return returns every buildings in application
+     */
     @Bean
     public List<Building> getBuildings(){
         return buildings;

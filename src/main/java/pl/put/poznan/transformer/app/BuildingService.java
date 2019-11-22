@@ -1,18 +1,15 @@
 package pl.put.poznan.transformer.app;
 
-import com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import pl.put.poznan.transformer.logic.Building;
 import pl.put.poznan.transformer.logic.Floor;
 
-import java.beans.BeanProperty;
 import java.util.Arrays;
 import java.util.List;
 
 @Component
 public class BuildingService {
-
 
 
     private List<Building> buildings = Arrays.asList(
@@ -26,9 +23,5 @@ public class BuildingService {
     }
 
 
-    @Bean
-    public Building getBuilding(Integer id){
-        return buildings.get(id);
-    }
 
 }

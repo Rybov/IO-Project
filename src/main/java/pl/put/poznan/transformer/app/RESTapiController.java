@@ -5,14 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.Building;
-import pl.put.poznan.transformer.logic.Logic;
 
-import java.util.Arrays;
 import java.util.List;
 
 
 @RestController
-@RequestMapping("/{text}")
+@RequestMapping("/buildings")
 public class RESTapiController {
 
     private static final Logger logger = LoggerFactory.getLogger(RESTapiController.class);
@@ -26,10 +24,6 @@ public class RESTapiController {
         return buildings;
     }
 
-    @GetMapping()
-    public void getBuilding(){
-
-    }
 
 
 

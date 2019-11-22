@@ -27,8 +27,8 @@ public class RESTapiController {
     }
 
     @GetMapping()
-    public Building getBuilding(){
-        return buildingService.get
+    public void getBuilding(){
+
     }
 
 

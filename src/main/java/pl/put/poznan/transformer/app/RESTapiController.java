@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/buildings")
 public class RESTapiController {
-
     private static final Logger logger = LoggerFactory.getLogger(RESTapiController.class);
 
     @Autowired

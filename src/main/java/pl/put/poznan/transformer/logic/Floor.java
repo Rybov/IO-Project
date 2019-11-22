@@ -7,6 +7,47 @@ public class Floor implements ILocation{
     private int id;
     private String name;
     private float area;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setArea(float area) {
+        this.area = area;
+    }
+
+    public void setVolume(float volume) {
+        this.volume = volume;
+    }
+
+    public void setHeatingLevel(float heatingLevel) {
+        this.heatingLevel = heatingLevel;
+    }
+
+    public void setLightPower(float lightPower) {
+        this.lightPower = lightPower;
+    }
+
+    public List<ILocation> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<ILocation> rooms) {
+        this.rooms = rooms;
+    }
+
     private float volume;
     private float heatingLevel;
     private float lightPower;

@@ -2,28 +2,49 @@ package pl.put.poznan.transformer.app;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import pl.put.poznan.transformer.logic.Building;
-import pl.put.poznan.transformer.logic.Floor;
+import pl.put.poznan.transformer.logic.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class BuildingService {
+      private List<Building> buildings = new ArrayList<Building>();
 
-    private List<Building> buildings = Arrays.asList(
-            new Building(0, "nowyBudynel").addFloor(new Floor(0, "podłowaMarcela")).addFloor(new Floor(1, "podłoga Iwa")),
-            new Building(1, "nowyBudenyek2").addFloor(new Floor(2, "podłoga Kuby i Jasia na której się ruchają w dupsko"))
-    );
+    public BuildingService() {
+        Room room1 = new Room(0, "Pokoj Marcelego", 100, 200, 10, 3);
+        Room room2 = new Room(1, "Pokoj Jaska", 10, 15, 1, 1);
+        Room room3 = new Room(2, "Pokoj Kuby", 100, 2, 5, 5 );
+        Floor floor1 = new Floor(3, "Pietro bogow");
+        Floor floor2 = new Floor(4, "Pietro Jasia (nikt nie chce z nim mieszkac");
+        floor1.addRoom(room1);
+        floor1.addRoom(room3);
+        floor2.addRoom(room2);
+        Building building1 = new Building(5, "Budynek studentow");
+        building1.addFloor(floor1);
+        building1.addFloor(floor2);
 
-    /**
-     * @return returns every buildings in application
-     */
+        buildings.add(building1);
+    }
+
     @Bean
     public List<Building> getBuildings(){
         return buildings;
     }
 
 
+    public List<Room> getRoomsOverArgument(int arg) {
+        List<Room> result = new ArrayList<Room>();
+        for ( Building b : buildings) {
+            for ( Floor f : b.getFloors()) {
+                for ( Room r : f.getRooms()) {
+                    if (r.getHeatingLevel() > arg) {
+                        result.add(r);
+                    }
+                }
+            }
+        }
+        return result;
+    }
 
 }

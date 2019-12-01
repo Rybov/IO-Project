@@ -10,24 +10,7 @@ public class Building implements ILocation{
     private float volume;
     private float heatingLevel;
     private float lightPower;
-
-    public List<ILocation> getFloors() {
-        return floors;
-    }
-
-    public void setFloors(List<ILocation> floors) {
-        this.floors = floors;
-    }
-
-    private List<ILocation> floors = new ArrayList<ILocation>();
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private List<Floor> floors = new ArrayList<Floor>();
 
     public Building(){}
 
@@ -48,7 +31,23 @@ public class Building implements ILocation{
         lightPower = 0.0f;
     }
 
-    public Building addFloor(ILocation location) {
+    public List<Floor> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(List<Floor> floors) {
+        this.floors = floors;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Building addFloor(Floor location) {
         this.area += location.getArea();
         this.volume += location.getVolume();
         this.heatingLevel += location.getHeatingLevel();
@@ -56,7 +55,7 @@ public class Building implements ILocation{
         floors.add(location);
         return this;
     }
-    public void removeFloor(ILocation location) {
+    public void removeFloor(Floor location) {
         this.area -= location.getArea();
         this.volume -= location.getVolume();
         this.heatingLevel -= location.getHeatingLevel();

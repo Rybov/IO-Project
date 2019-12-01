@@ -15,6 +15,13 @@ public class Room implements ILocation {
         heatingLevel = 0.0f;
         lightPower = 0.0f;
     }
+
+    public int getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
     public Room(int id, String name, float area, float volume, float heatingLevel, float lightPower) {
         this.id = id;
         this.name = name;
@@ -23,8 +30,6 @@ public class Room implements ILocation {
         this.heatingLevel = heatingLevel;
         this.lightPower = lightPower;
     }
-
-
     public float getArea() {
         return area;
     }

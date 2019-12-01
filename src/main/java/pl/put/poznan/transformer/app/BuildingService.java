@@ -12,15 +12,15 @@ public class BuildingService {
       private List<Building> buildings = new ArrayList<Building>();
 
     public BuildingService() {
-        Room room1 = new Room(0, "Pokoj Marcelego", 100, 200, 10, 3);
-        Room room2 = new Room(1, "Pokoj Jaska", 10, 15, 1, 1);
-        Room room3 = new Room(2, "Pokoj Kuby", 100, 2, 5, 5 );
-        Floor floor1 = new Floor(3, "Pietro bogow");
-        Floor floor2 = new Floor(4, "Pietro Jasia (nikt nie chce z nim mieszkac");
+        Room room1 = new Room(0, "Pokoj1", 100, 200, 10, 3);
+        Room room2 = new Room(1, "Pokoj2", 10, 15, 1, 1);
+        Room room3 = new Room(2, "Pokoj3", 100, 2, 5, 5 );
+        Floor floor1 = new Floor(3, "Pietro1");
+        Floor floor2 = new Floor(4, "Pietro2");
         floor1.addRoom(room1);
         floor1.addRoom(room3);
         floor2.addRoom(room2);
-        Building building1 = new Building(5, "Budynek studentow");
+        Building building1 = new Building(5, "Budynek1");
         building1.addFloor(floor1);
         building1.addFloor(floor2);
 

@@ -51,7 +51,6 @@ public class Floor implements ILocation{
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
-
     public Floor(int id) {
         this.id = id;
         name = "";
@@ -82,7 +81,6 @@ public class Floor implements ILocation{
         this.lightPower -= location.getLightPower();
         rooms.remove(location);
     }
-
     public float getArea() {
         return area;
     }

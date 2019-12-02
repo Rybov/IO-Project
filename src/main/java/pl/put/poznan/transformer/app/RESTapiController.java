@@ -24,11 +24,12 @@ public class RESTapiController {
         return buildingService.getBuildings();
     }
 
-    @RequestMapping(value = "/{arg}", method = RequestMethod.GET, produces = "application/json")
-    public List<Room> getBuildingsWithParams(@PathVariable int arg) {
-        return buildingService.getRoomsOverArgument(arg);
+    @RequestMapping(value = "/param/{build}/{arg}", method = RequestMethod.GET, produces = "application/json")
+    public List<Room> getBuildingsWithParams(@PathVariable String build, @PathVariable int arg) {
+        return buildingService.getRoomsOverArgument(build, arg);
     }
-    @RequestMapping("/{build}")
+
+    @RequestMapping("/find/{build}")
     public Building getBuild(@PathVariable String build) {
         List<Building> buildings = buildingService.getBuildings();
         for (int i = 0; i <= buildings.size(); i++) {
@@ -39,7 +40,7 @@ public class RESTapiController {
         return null;
     }
 
-    @RequestMapping("/{build}/{floor}")
+    @RequestMapping("/find/{build}/{floor}")
     public Floor getFloor(@PathVariable String build, @PathVariable String floor) {
         List<Building> buildings = buildingService.getBuildings();
         for (int i = 0; i <= buildings.size(); i++) {
@@ -51,7 +52,8 @@ public class RESTapiController {
         }
         return null;
     }
-    @RequestMapping("/{build}/{floor}/{room}")
+
+    @RequestMapping("/find/{build}/{floor}/{room}")
     public Room getRoom (@PathVariable String build, @PathVariable String floor, @PathVariable String room) {
         List<Building> buildings = buildingService.getBuildings();
         for (int i = 0; i <= buildings.size(); i++) {

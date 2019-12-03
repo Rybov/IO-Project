@@ -27,7 +27,8 @@ public class BuildingService {
         room1 = new Room(6, "Pokoj1", 20, 40, 5, 5);
         room2 = new Room(7, "Pokoj2", 10, 15, 1, 1);
         room3 = new Room(8, "Pokoj3", 15, 252, 10, 7);
-        Room room4 = new Room(8, "Pokoj3", 25, 53, 25, 3);
+        Room room4 = new Room(8, "Pokoj4", 25, 53, 25, 3);
+        Room room5 = new Room(8, "Pokoj5", 50, 100, 23, 23);
         floor1 = new Floor(9, "Pietro1");
         floor2 = new Floor(10, "Pietro2");
         Floor floor3 = new Floor(11, "Pietro3");

@@ -27,3 +27,6 @@ Additionaly room can by characterised by:
 <li>heating - heating consumption rate
 <li>light - total light wattage
 </ul>
+
+### UML diagram
+![uml jpg](https://user-images.githubusercontent.com/44983581/70074928-02bb6980-15fc-11ea-99b8-b77bcc4f86f4.png)

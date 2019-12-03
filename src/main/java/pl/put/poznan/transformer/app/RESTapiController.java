@@ -24,6 +24,9 @@ public class RESTapiController {
 
     @RequestMapping("/all")
     public List<Building> getBuildings() {
+
+
+        logger.info("I show all buildings");
         return buildingService.getBuildings();
     }
 

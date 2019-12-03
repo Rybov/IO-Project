@@ -34,6 +34,7 @@ public class RESTapiController {
      */
     @RequestMapping(value = "/param/{build}/{arg}", method = RequestMethod.GET, produces = "application/json")
     public List<Room> getBuildingsWithParams(@PathVariable String build, @PathVariable int arg) {
+        logger.info("I show rooms with value of heating level above arg");
         return buildingService.getRoomsOverArgument(build, arg);
     }
 
@@ -47,6 +48,8 @@ public class RESTapiController {
         for (int i = 0; i <= buildings.size(); i++) {
 
             if (buildings.get(i).getName().equals(build))
+                logger.info("I show build with name " + build);
+                logger.debug("Posted parameter:" + build);
                 return buildings.get(i);
         }
         return null;
@@ -65,7 +68,10 @@ public class RESTapiController {
             if (buildings.get(i).getName().equals(build))
                 for (int j = 0; j <= buildings.get(i).getFloors().size(); j++)
                     if (buildings.get(i).getFloors().get(j).getName().equals(floor))
-                        return buildings.get(i).getFloors().get(j);
+                    {
+                        logger.info("I show Floor with name " + floor);
+                        logger.debug("Posted parameter:" + floor);
+                        return buildings.get(i).getFloors().get(j);}
         }
         return null;
     }
@@ -84,8 +90,11 @@ public class RESTapiController {
                 for (int j = 0; j <= buildings.get(i).getFloors().size(); j++)
                     if (buildings.get(i).getFloors().get(j).getName().equals(floor))
                         for (int k = 0; k <= buildings.get(i).getFloors().get(j).getRooms().size(); k++)
-                            if (buildings.get(i).getFloors().get(j).getRooms().get(k).getName().equals(room))
+                            if (buildings.get(i).getFloors().get(j).getRooms().get(k).getName().equals(room)) {
+                                logger.info("I show Room with name " + room);
+                                logger.debug("Posted parameter:" + room);
                                 return buildings.get(i).getFloors().get(j).getRooms().get(k);
+                            }
 
         }
         return null;

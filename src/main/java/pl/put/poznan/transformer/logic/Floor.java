@@ -3,6 +3,9 @@ package pl.put.poznan.transformer.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class of Floor
+ */
 public class Floor implements ILocation{
     private int id;
     private String name;
@@ -51,6 +54,11 @@ public class Floor implements ILocation{
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
+
+    /**
+     * Constructor, every floor has to have id
+     * @param id Id of new floor
+     */
     public Floor(int id) {
         this.id = id;
         name = "";
@@ -59,6 +67,12 @@ public class Floor implements ILocation{
         heatingLevel = 0.0f;
         lightPower = 0.0f;
     }
+
+    /**
+     * Optionally constructor with name and id
+     * @param id New id
+     * @param name New name
+     */
     public Floor(int id, String name) {
         this.id = id;
         this.name = name;
@@ -67,6 +81,11 @@ public class Floor implements ILocation{
         heatingLevel = 0.0f;
         lightPower = 0.0f;
     }
+
+    /**
+     * Adding new room
+     * @param location New room
+     */
     public void addRoom(Room location) {
         this.area += location.getArea();
         this.volume += location.getVolume();
@@ -74,6 +93,11 @@ public class Floor implements ILocation{
         this.lightPower += location.getLightPower();
         rooms.add(location);
     }
+
+    /**
+     * removing a room
+     * @param location location to remove
+     */
     public void removeRoom(Room location) {
         this.area -= location.getArea();
         this.volume -= location.getVolume();

@@ -1,4 +1,8 @@
 package pl.put.poznan.transformer.logic;
+
+/**
+ * Class of room
+ */
 public class Room implements ILocation {
     private int id;
     private String name;
@@ -7,6 +11,10 @@ public class Room implements ILocation {
     private float heatingLevel;
     private float lightPower;
 
+    /**
+     * Constructor with id, every room has to have id
+     * @param id Id of new room
+     */
     public Room(int id) {
         this.id = id;
         name = "";
@@ -22,6 +30,16 @@ public class Room implements ILocation {
     public String getName() {
         return name;
     }
+
+    /**
+     * constructor with every property
+     * @param id Id of new room
+     * @param name Name of new room
+     * @param area Area of new room
+     * @param volume volume of room
+     * @param heatingLevel heating level of new room
+     * @param lightPower lightPower of new room
+     */
     public Room(int id, String name, float area, float volume, float heatingLevel, float lightPower) {
         this.id = id;
         this.name = name;

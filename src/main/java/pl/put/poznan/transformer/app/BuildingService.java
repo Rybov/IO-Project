@@ -7,10 +7,16 @@ import pl.put.poznan.transformer.logic.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *class which manage our buildings
+ */
 @Component
 public class BuildingService {
       private List<Building> buildings = new ArrayList<Building>();
 
+    /**
+     * simply constructor, create our data
+     */
     public BuildingService() {
         Room room1 = new Room(0, "Pokoj1", 100, 200, 10, 3);
         Room room2 = new Room(1, "Pokoj2", 10, 15, 1, 1);
@@ -28,14 +34,15 @@ public class BuildingService {
         room2 = new Room(7, "Pokoj2", 10, 15, 1, 1);
         room3 = new Room(8, "Pokoj3", 15, 252, 10, 7);
         Room room4 = new Room(8, "Pokoj4", 25, 53, 25, 3);
-        Room room5 = new Room(8, "Pokoj5", 50, 100, 23, 23);
-        floor1 = new Floor(9, "Pietro1");
-        floor2 = new Floor(10, "Pietro2");
-        Floor floor3 = new Floor(11, "Pietro3");
+        Room room5 = new Room(9, "Pokoj5", 50, 100, 23, 23);
+        floor1 = new Floor(10, "Pietro1");
+        floor2 = new Floor(11, "Pietro2");
+        Floor floor3 = new Floor(12, "Pietro3");
         floor1.addRoom(room1);
         floor2.addRoom(room2);
         floor2.addRoom(room3);
         floor3.addRoom(room4);
+        floor3.addRoom(room5);
         building1 = new Building(12, "Budynek2");
         building1.addFloor(floor1);
         building1.addFloor(floor2);
@@ -43,12 +50,21 @@ public class BuildingService {
         buildings.add(building1);
     }
 
+    /**
+     * simply getter
+     * @return our data
+     */
     @Bean
     public List<Building> getBuildings(){
         return buildings;
     }
 
 
+    /**
+     * @param build, name of building
+     * @param arg, the value of maximum satisfactory heating level
+     * @return list of rooms
+     */
     public List<Room> getRoomsOverArgument(String build, int arg) {
         List<Room> result = new ArrayList<Room>();
         for (Building b : buildings) {

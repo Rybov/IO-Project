@@ -11,6 +11,9 @@ import pl.put.poznan.transformer.logic.Room;
 import java.util.List;
 
 
+/**
+ * Our 'meat' of Restapi
+ */
 @RestController
 @RequestMapping("/buildings")
 public class RESTapiController {
@@ -24,11 +27,20 @@ public class RESTapiController {
         return buildingService.getBuildings();
     }
 
+    /**
+     * @param build Name of building to look
+     * @param arg Max value of heating level
+     * @return list of rooms
+     */
     @RequestMapping(value = "/param/{build}/{arg}", method = RequestMethod.GET, produces = "application/json")
     public List<Room> getBuildingsWithParams(@PathVariable String build, @PathVariable int arg) {
         return buildingService.getRoomsOverArgument(build, arg);
     }
 
+    /**
+     * @param build Name of building
+     * @return building with that name
+     */
     @RequestMapping("/find/{build}")
     public Building getBuild(@PathVariable String build) {
         List<Building> buildings = buildingService.getBuildings();
@@ -40,6 +52,11 @@ public class RESTapiController {
         return null;
     }
 
+    /**
+     * @param build Name of building
+     * @param floor Name of floor
+     * @return floor with that name in this building
+     */
     @RequestMapping("/find/{build}/{floor}")
     public Floor getFloor(@PathVariable String build, @PathVariable String floor) {
         List<Building> buildings = buildingService.getBuildings();
@@ -53,6 +70,12 @@ public class RESTapiController {
         return null;
     }
 
+    /**
+     * @param build Name of building
+     * @param floor Name of floor
+     * @param room Name of room
+     * @return room with that name on this floor in this building
+     */
     @RequestMapping("/find/{build}/{floor}/{room}")
     public Room getRoom (@PathVariable String build, @PathVariable String floor, @PathVariable String room) {
         List<Building> buildings = buildingService.getBuildings();

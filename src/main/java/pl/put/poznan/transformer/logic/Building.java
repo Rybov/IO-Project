@@ -13,6 +13,8 @@ public class Building implements ILocation{
     private float volume;
     private float heatingLevel;
     private float lightPower;
+    private float avgVolume;
+    private float avgLightPower;
     private List<Floor> floors = new ArrayList<Floor>();
 
     /**
@@ -89,6 +91,8 @@ public class Building implements ILocation{
         this.heatingLevel += location.getHeatingLevel();
         this.lightPower += location.getLightPower();
         floors.add(location);
+        this.avgLightPower = this.lightPower/getFloors().size();
+        this.avgVolume = this.volume/getFloors().size();
         return this;
     }
 
@@ -102,6 +106,8 @@ public class Building implements ILocation{
         this.heatingLevel -= location.getHeatingLevel();
         this.lightPower -= location.getLightPower();
         floors.remove(location);
+        this.avgLightPower = this.lightPower/getFloors().size();
+        this.avgVolume = this.volume/getFloors().size();
     }
 
     /**
@@ -150,5 +156,21 @@ public class Building implements ILocation{
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    public float getAvgVolume() {
+        return avgVolume;
+    }
+
+    public void setAvgVolume(float avgVolume) {
+        this.avgVolume = avgVolume;
+    }
+
+    public float getAvgLightPower() {
+        return avgLightPower;
+    }
+
+    public void setAvgLightPower(float avgLightPower) {
+        this.avgLightPower = avgLightPower;
     }
 }

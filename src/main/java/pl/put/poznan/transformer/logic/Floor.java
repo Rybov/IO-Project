@@ -1,5 +1,6 @@
 package pl.put.poznan.transformer.logic;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,8 @@ public class Floor implements ILocation{
     private float volume;
     private float heatingLevel;
     private float lightPower;
+    private float avgVolume;
+    private float avgLightPower;
     private List<Room> rooms = new ArrayList<Room>();
 
     public int getId() {
@@ -92,6 +95,8 @@ public class Floor implements ILocation{
         this.heatingLevel += location.getHeatingLevel();
         this.lightPower += location.getLightPower();
         rooms.add(location);
+        this.avgLightPower = this.lightPower/getRooms().size();
+        this.avgVolume = this.volume/getRooms().size();
     }
 
     /**
@@ -104,6 +109,8 @@ public class Floor implements ILocation{
         this.heatingLevel -= location.getHeatingLevel();
         this.lightPower -= location.getLightPower();
         rooms.remove(location);
+        this.avgLightPower = this.lightPower/getRooms().size();
+        this.avgVolume = this.volume/getRooms().size();
     }
     public float getArea() {
         return area;
@@ -116,5 +123,17 @@ public class Floor implements ILocation{
     }
     public float getLightPower() {
         return lightPower;
+    }
+    public float getAvgVolume() {
+        return avgVolume;
+    }
+    public void setAvgVolume(float avgVolume) {
+        this.avgVolume = avgVolume;
+    }
+    public float getAvgLightPower() {
+        return avgLightPower;
+    }
+    public void setAvgLightPower(float avgLightPower) {
+        this.avgLightPower = avgLightPower;
     }
 }
